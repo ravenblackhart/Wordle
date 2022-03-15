@@ -51,6 +51,30 @@ void WordList::SetKey()
 	else cout << "Reference List Not Found" << endl;
 
 	cout << "Selected line is " << selected << " : " << key << endl;
+	readCount = 0; 
+	refList.close();
+}
 
+bool WordList::CheckList(string str)
+{
+
+	refList.open("words.txt");
+
+	if (refList.is_open())
+	{
+		while (getline(refList, refLine))
+		{
+			readCount++; 
+			if (refLine.find(str, 0) != string::npos)
+			{
+				cout << "found '" << str << "' in line '" << readCount << "'" << endl;
+				
+				return true;
+			}
+		}
+	}
+	readCount = 0; 
+	refList.close();
+	return false; 
 }
 

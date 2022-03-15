@@ -27,6 +27,8 @@ public:
 
 	void GetCount();
 
-	void SetKey(); 
+	void SetKey();
+
+	bool CheckList(string str); 
 };
 

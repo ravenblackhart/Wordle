@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Guess.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="WordList.cpp" />
   </ItemGroup>
@@ -146,6 +147,7 @@
     <Text Include="words.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Guess.h" />
     <ClInclude Include="WordList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
