@@ -1,5 +1,6 @@
 #include "WordList.h"
 
+
 void WordList::GetCount()
 {
 	refList.open("words.txt");

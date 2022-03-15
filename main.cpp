@@ -30,8 +30,6 @@ enum class BackgroundColor : int {
 
 int main()
 {
-    srand(time(0));
-
     cout << FOREGROUND(ForegroundColor::BrightRed, "Hello world!") << endl;
     cout << BACKGROUND(BackgroundColor::BrightRed, "Hello world!") << endl;
 
@@ -41,8 +39,7 @@ int main()
 
     wordList.SetKey(); 
 
-    char input[5];
-    char upperInput[5]; 
+    string input;
     int chances = 6;
     bool correct = false;
 
@@ -51,21 +48,16 @@ int main()
     cout << "You have " << chances << " chances left. Enter your guess. \n";
     cin >> input;
 
-    for(int i = 0; i < strlen(input); i++)
+    for(int i = 0; i < 5; i++)
     {
-        upperInput[i] = toupper(input[i]); 
+        input[i] = toupper(input[i]);
     }
 
 
-    if (upperInput == wordList.key)
+    if (input == wordList.key)
     {
         correct = true;
-
-        for (int i = 0; i < 5; i++)
-        {
-            cout << BACKGROUND(BackgroundColor::Green, upperInput);
-        }
-
+        cout << BACKGROUND(BackgroundColor::Green, input) << endl;
         cout << endl;
         cout << "Hurra! You guessed the word in " << 7 - chances << " tries !" << endl;
         
@@ -75,13 +67,13 @@ int main()
     {
         for (int i = 0; i < 5; i++)
         {
-            if (upperInput[i] == wordList.key[i])
+            if (input[i] == wordList.key[i])
             {
 
-                cout << BACKGROUND(BackgroundColor::Green, upperInput[i]);
+                cout << BACKGROUND(BackgroundColor::Green, input[i]);
             }
 
-            else cout << upperInput[i];
+            else cout << input[i];
         }
         cout << endl;
     }
