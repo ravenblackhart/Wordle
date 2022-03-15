@@ -21,6 +21,8 @@ private:
 
 public:
 
+	WordList(); 
+
 	string key;
 
 	void GetCount();

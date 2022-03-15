@@ -34,10 +34,7 @@ int main()
     cout << BACKGROUND(BackgroundColor::BrightRed, "Hello world!") << endl;
 
 	WordList wordList;
-    
-    wordList.GetCount();
 
-    wordList.SetKey(); 
 
     string input;
     int chances = 6;

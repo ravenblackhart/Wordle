@@ -1,5 +1,10 @@
 #include "WordList.h"
 
+WordList::WordList()
+{
+	GetCount();
+	SetKey(); 
+}
 
 void WordList::GetCount()
 {
