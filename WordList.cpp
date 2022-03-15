@@ -20,7 +20,6 @@ void WordList::GetCount()
 
 	else cout << "Reference List Not Found" << endl;
 
-	cout << listCount << " lines in Total" << endl;
 
 	refList.close(); 
 }
@@ -50,7 +49,6 @@ void WordList::SetKey()
 
 	else cout << "Reference List Not Found" << endl;
 
-	cout << "Selected line is " << selected << " : " << key << endl;
 	readCount = 0; 
 	refList.close();
 }
@@ -66,9 +64,7 @@ bool WordList::CheckList(string str)
 		{
 			readCount++; 
 			if (refLine.find(str, 0) != string::npos)
-			{
-				cout << "found '" << str << "' in line '" << readCount << "'" << endl;
-				
+			{				
 				return true;
 			}
 		}

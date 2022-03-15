@@ -44,20 +44,35 @@ void Guess::CheckInput(string str)
 			if (input[i] == wordList.key[i])
 			{
 
-				cout << BACKGROUND(BackgroundColor::Green, input[i]);
+				cout << BACKGROUND(BackgroundColor::Green, FOREGROUND(ForegroundColor::Black, input[i]));
 			}
 
 			else if (wordList.key.find(input[i]) != string::npos)
 			{
-				cout << BACKGROUND(BackgroundColor::Yellow, input[i]);
+				cout << BACKGROUND(BackgroundColor::Yellow, FOREGROUND(ForegroundColor::Black, input[i]));
 			} 
 
-			else cout << input[i];
+			else cout << BACKGROUND(BackgroundColor::Grey, FOREGROUND(ForegroundColor::Black, input[i]));
 		}
 		cout << endl;
 		if (chances > 0) GetInput();
 		else cout << "The correct answer was '" << wordList.key << "'. Would you like to play again? Y / N : ";
-		cin >> repeat; 
+		cin >> repeat;
+		Restart(repeat); 
 	}
 }
+
+void Guess::Restart(string str)
+{
+	if (str == "Y" || str == "y")
+	{
+		cout << endl << "Selecting new Secret Word ... \n" << endl;
+		chances = 6;
+		wordList.SetKey();
+		GetInput();
+	}
+
+	else cout << "See You Next Time!"; 
+}
+
 
