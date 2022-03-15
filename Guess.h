@@ -37,9 +37,9 @@ private:
 public:
     WordList wordList;
 
-    bool isValid(string str); 
+    void isValid(string str); 
 	void GetInput();
 	void CheckInput(string str); 
-	void Restart(); 
+	void Restart();
 };
 
