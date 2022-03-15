@@ -2,6 +2,7 @@
 
 void Guess::GetInput()
 {
+	cout << endl; 
 	cout << "You have " << chances << " chance left. Make your guess : ";
 	cin >> input;
 
@@ -16,7 +17,7 @@ void Guess::GetInput()
 void Guess::isValid(string str)
 {
 	if (input.length() > 5 || input.length() < 5 || !wordList.CheckList(str)) {
-		cout << "Invalid Word. Please ensure your guess is a valid 5 letter word. \n";
+		cout << "Invalid Word. Please ensure your guess is a valid 5 letter word. \n" ;
 		GetInput(); 
 	}
 
@@ -54,7 +55,7 @@ void Guess::CheckInput(string str)
 
 			else cout << BACKGROUND(BackgroundColor::Grey, FOREGROUND(ForegroundColor::Black, input[i]));
 		}
-		cout << endl;
+		cout << " " << endl;
 		if (chances > 0) GetInput();
 		else cout << "The correct answer was '" << wordList.key << "'. Would you like to play again? Y / N : ";
 		cin >> repeat;
