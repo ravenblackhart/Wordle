@@ -8,7 +8,7 @@ WordList::WordList()
 
 void WordList::GetCount()
 {
-	refList.open("words.txt");
+	if(!refList.is_open()) refList.open("words.txt");
 
 	if (refList.is_open())
 	{
@@ -30,7 +30,7 @@ void WordList::SetKey()
 
 	selected = rand() % listCount;
 
-	refList.open("words.txt");
+	if (!refList.is_open()) refList.open("words.txt");
 
 	if (refList.is_open())
 	{
@@ -55,8 +55,7 @@ void WordList::SetKey()
 
 bool WordList::CheckList(string str)
 {
-
-	refList.open("words.txt");
+	if (!refList.is_open()) refList.open("words.txt");
 
 	if (refList.is_open())
 	{

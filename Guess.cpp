@@ -3,8 +3,8 @@
 void Guess::GetInput()
 {
 	cout << endl; 
-	cout << "You have " << chances << " chance left. Make your guess : ";
-	cin >> input;
+	cout << "You have " << chances << " chances left. Make your guess : ";
+	std::cin >> input;
 
 	for (int i = 0; i < 5; i++)
 	{
@@ -16,9 +16,15 @@ void Guess::GetInput()
 
 void Guess::isValid(string str)
 {
-	if (input.length() > 5 || input.length() < 5 || !wordList.CheckList(str)) {
+	if (input.length() > 5 || input.length() < 5 ) {
 		cout << "Invalid Word. Please ensure your guess is a valid 5 letter word. \n" ;
 		GetInput(); 
+	}
+
+	else if (!wordList.CheckList(str))
+	{
+		cout << "Invalid Word. The word " << FOREGROUND(ForegroundColor::Red, str) << " does not exist in the dictionary. \n";
+		GetInput();
 	}
 
 	else 
@@ -34,7 +40,8 @@ void Guess::CheckInput(string str)
 	{
 		cout << BACKGROUND(BackgroundColor::Green, input) << endl;
 		cout << endl;
-		cout << "Hurrah! You guessed the word in " << 6 - chances << " tries !" << endl;
+		cout << "Hurrah! You guessed the word in " << 6 - chances << " tries ! Would you like to play again? Y / N : ";
+		std::cin >> repeat; 
 		cout << endl;
 	}
 
@@ -51,16 +58,18 @@ void Guess::CheckInput(string str)
 			else if (wordList.key.find(input[i]) != string::npos)
 			{
 				cout << BACKGROUND(BackgroundColor::Yellow, FOREGROUND(ForegroundColor::Black, input[i]));
-			} 
+			}
 
 			else cout << BACKGROUND(BackgroundColor::Grey, FOREGROUND(ForegroundColor::Black, input[i]));
 		}
 		cout << " " << endl;
+
 		if (chances > 0) GetInput();
 		else cout << "The correct answer was '" << wordList.key << "'. Would you like to play again? Y / N : ";
-		cin >> repeat;
-		Restart(repeat); 
+		std::cin >> repeat;
+		Restart(repeat);
 	}
+		
 }
 
 void Guess::Restart(string str)
