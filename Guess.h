@@ -36,6 +36,6 @@ public:
     void isValid(string str); 
 	void GetInput();
 	void CheckInput(string str); 
-	void Restart(string str);
+	void Restart();
 };
 

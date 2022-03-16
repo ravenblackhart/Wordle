@@ -40,9 +40,8 @@ void Guess::CheckInput(string str)
 	{
 		cout << BACKGROUND(BackgroundColor::Green, input) << endl;
 		cout << endl;
-		cout << "Hurrah! You guessed the word in " << 6 - chances << " tries ! Would you like to play again? Y / N : ";
-		std::cin >> repeat; 
-		cout << endl;
+		cout << "Hurrah! You guessed the word in " << 6 - chances << " tries ! ";
+		Restart(); 
 	}
 
 	else
@@ -65,16 +64,19 @@ void Guess::CheckInput(string str)
 		cout << " " << endl;
 
 		if (chances > 0) GetInput();
-		else cout << "The correct answer was '" << wordList.key << "'. Would you like to play again? Y / N : ";
-		std::cin >> repeat;
-		Restart(repeat);
+		else cout << "The correct answer was '" << wordList.key << "' . ";
+		Restart(); 
+		
 	}
 		
 }
 
-void Guess::Restart(string str)
+void Guess::Restart()
 {
-	if (str == "Y" || str == "y")
+	cout << "Would you like to play again? Y / N : ";
+	std::cin >> repeat;
+
+	if (repeat == "Y" || repeat == "y")
 	{
 		cout << endl << "Selecting new Secret Word ... \n" << endl;
 		chances = 6;

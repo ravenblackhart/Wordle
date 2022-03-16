@@ -61,14 +61,16 @@ bool WordList::CheckList(string str)
 	{
 		while (getline(refList, refLine))
 		{
-			readCount++; 
-			if (refLine.find(str, 0) != string::npos)
-			{				
+			
+			if (refLine.find(str) != string::npos)
+			{
+				refList.close();
 				return true;
+				
 			}
+
 		}
 	}
-	readCount = 0; 
 	refList.close();
 	return false; 
 }
