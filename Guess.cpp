@@ -4,13 +4,11 @@ void Guess::GetInput()
 {
 	cout << endl; 
 	cout << "You have " << chances << " chances left. Make your guess : ";
-	std::cin >> input;
-
-	for (int i = 0; i < 5; i++)
+	std::getline(cin, input);
+	for (int i = 0; i < input.length(); i++)
 	{
 		input[i] = toupper(input[i]);
 	}
-
 	isValid(input); 
 }
 
@@ -47,39 +45,51 @@ void Guess::CheckInput(string str)
 	else
 	{
 		string temp = wordList.key;
-		int count = 0; 
+		string test = input; 
+		int bgcolors[6];
+		int fgcolors[6]; 
 
-		for (int i = 0; i < 5; i++)
+
+		for (int i = 0; i < 5 ; i++)
 		{
 			if (input[i] == wordList.key[i])
 			{
-				
-				temp[i] = '0';
-				count++;
-				cout << BACKGROUND(BackgroundColor::Green, FOREGROUND(ForegroundColor::Black, input[i]));
+				temp[i] = '*';
+				test[i] = '0'; 
+				bgcolors[i] = (int)BackgroundColor::Green;
+				fgcolors[i] = (int)ForegroundColor::Black;
 			}
 
-			else if (wordList.key.find(input[i]) == string::npos)
-			{
-				cout << BACKGROUND(BackgroundColor::Grey, FOREGROUND(ForegroundColor::Black, input[i]));
-			}
 
-			else if (temp.find(input[i]) != string::npos)
+
+		}
+
+		for (int i = 0; i < 6; i++)
+		{
+
+			if (temp.find(test[i]) != string::npos)
 			{
-				for (int x = 0; x < 5; x++)
+				for (int x = 0; x < 6; x++)
 				{
-
-					if (input[i] == temp[x] && count == 0)
+					if (test[i] == temp[x])
 					{
-						temp[x] = '0';
-						count++;
+						temp[x] = '*';
+						test[x] = '0';
 					}
+
 				}
-				cout << BACKGROUND(BackgroundColor::Yellow, FOREGROUND(ForegroundColor::Black, input[i]));
+
+				bgcolors[i] = (int)BackgroundColor::Yellow;
+				fgcolors[i] = (int)ForegroundColor::Black;
 			}
 
-			else cout << input[i]; 
+			
 
+		}
+
+		for (int i = 0; i < 6; i++)
+		{
+			cout << BACKGROUND(bgcolors[i], FOREGROUND(fgcolors[i], input[i])); 
 		}
 		cout << " " << endl;
 
