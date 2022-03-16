@@ -12,12 +12,12 @@ int main()
 {
 
     Guess guess;
-    cout << FOREGROUND(ForegroundColor::Yellow, "GUESS THE WORLD FROM KRISTER'S WORDLIST") << endl << endl; 
+    cout << FOREGROUND(ForegroundColor::Yellow, "GUESS THE WORD FROM KRISTER'S WORDLIST") << endl << endl; 
     cout << "Welcome! This game is a twist on the super-popular internet sensation " <<
-        BACKGROUND(BackgroundColor::Red, "W") <<
-        BACKGROUND(BackgroundColor::Green, "O") <<
+        BACKGROUND(BackgroundColor::Red, FOREGROUND(ForegroundColor::Black, "W")) <<
+        BACKGROUND(BackgroundColor::Green, FOREGROUND(ForegroundColor::Black, "O")) <<
         FOREGROUND(ForegroundColor::Green, "R") <<
-        BACKGROUND(BackgroundColor::Yellow, "D") <<
+        BACKGROUND(BackgroundColor::Yellow, FOREGROUND(ForegroundColor::Black, "D")) <<
         FOREGROUND(ForegroundColor::Red, "L") <<
         FOREGROUND(ForegroundColor::Yellow, "E") <<
         " where you will have to guess a secret 5 letter word each day in 6 tries. \n" << endl <<
