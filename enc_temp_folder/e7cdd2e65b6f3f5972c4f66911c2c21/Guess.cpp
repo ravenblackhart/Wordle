@@ -38,7 +38,7 @@ void Guess::CheckInput(string str)
 {
 	if (input == wordList.key)
 	{
-		cout << BACKGROUND(BackgroundColor::Green, FOREGROUND(ForegroundColor::Black, input)) << endl;
+		cout << BACKGROUND(BackgroundColor::Green, input) << endl;
 		cout << endl;
 		cout << "Hurrah! You guessed the word in " << 6 - chances << " tries ! ";
 		Restart(); 
