@@ -40,7 +40,8 @@ void WordList::SetKey()
 
 			if (readCount == selected)
 			{
-				key = refLine; 
+				key = refLine;
+				cout << key << endl; 
 			}
 
 		}

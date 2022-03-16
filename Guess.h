@@ -17,7 +17,7 @@ enum class BackgroundColor : int {
     Red = 41,
     Green = 42,
     Yellow = 43,
-    Grey = 47
+    Grey = 100
 };
 
 class Guess
