@@ -21,7 +21,7 @@ int main()
         FOREGROUND(ForegroundColor::Red, "L") <<
         FOREGROUND(ForegroundColor::Yellow, "E") <<
         " where you will have to guess a secret 5 letter word each day in 6 tries. \n" << endl <<
-        "In this version, however, the reference dictionary is a word list provided by Krister; Not all the words you expect to be in the list will be there. Not all the words in this list are actual words either. \n" << endl <<
+        "In this version, however, the reference dictionary is a word list provided by Krister; Not all the words you expect to be in the list will be there. \n" << endl <<
         "Other than the words, the usual rules of WORDLE apply : \n" <<
         "For every guess that is not the right answer, each letter will be marked with an indicator. \n" <<
         "- Letters not in the word are marked with a " << BACKGROUND(BackgroundColor::Grey, "GREY BACKGROUND") << ". \n" <<
@@ -33,7 +33,6 @@ int main()
     guess.GetInput(); 
      
 
-    
 
     return 0; 
 }

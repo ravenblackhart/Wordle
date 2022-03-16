@@ -46,20 +46,37 @@ void Guess::CheckInput(string str)
 
 	else
 	{
+		string temp = wordList.key;
+		int count = 0; 
+
 		for (int i = 0; i < 5; i++)
 		{
 			if (input[i] == wordList.key[i])
 			{
-
 				cout << BACKGROUND(BackgroundColor::Green, FOREGROUND(ForegroundColor::Black, input[i]));
+				temp[i] = '0';
+				count++; 
 			}
 
-			else if (wordList.key.find(input[i]) != string::npos)
+			else if (wordList.key.find(input[i]) == string::npos)
+			{
+				cout << BACKGROUND(BackgroundColor::Grey, FOREGROUND(ForegroundColor::Black, input[i]));
+			}
+
+			else if (temp.find(input[i]) != string::npos)
 			{
 				cout << BACKGROUND(BackgroundColor::Yellow, FOREGROUND(ForegroundColor::Black, input[i]));
+				for (int x = 0; x < 5; x++)
+				{
+					
+					if  (input[i] == temp[x] && count == 0)
+					{
+						temp[i] = '0';
+						count++; 
+					}
+				}
 			}
 
-			else cout << BACKGROUND(BackgroundColor::Grey, FOREGROUND(ForegroundColor::Black, input[i]));
 		}
 		cout << " " << endl;
 
