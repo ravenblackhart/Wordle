@@ -7,7 +7,10 @@
 
 using namespace std;
 
-class WordList
+class WordList // feedback: while I see the thought behind the naming this class like this, the only data in fact that it manages is
+			   // a "key" string, the picked random word from the file. Class name should represent what data class manages, for example
+			   // TargetWordPicker. By looking at the current class name I expected to see an actual list of the words, which is not what
+			   // this class is doing.
 {
 private:
 	ifstream refList;

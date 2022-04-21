@@ -33,7 +33,7 @@ private:
 public:
     WordList wordList;
 
-    void isValid(string str); 
+    void isValid(string str);  // feedback: string arguments could be references to avoid copying.
 	void GetInput();
 	void CheckInput(string str); 
 	void Restart();
